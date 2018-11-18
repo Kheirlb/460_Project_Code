@@ -5,7 +5,7 @@ r_i = [-6604.71407837     1859.69073972       -0.00579101]; %km
 v_i = [-1.28133744       -4.55298678        5.98028712]; %km/s
 
 % Standard Information of planets
-muE = 398600; km
+muE = 398600; %km
 rE = 6371; %km
 %[] = sphere(rE);
 
