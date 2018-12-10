@@ -1,0 +1,6 @@
+Downlink:
+Designator, Lat, Long, Risk, Highest Temperature, Intensity, Desire to Comm Optically
+Designator1, 32.775153, -117.071680, 75, 120, Low, 1
+
+Uplink:
+Designator, Weather, Priority Status for Ground Station,  
