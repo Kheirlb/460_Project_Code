@@ -10,20 +10,15 @@
 #define UI_ATTPAR_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -50,17 +45,12 @@ public:
     QPushButton *pushButton_3;
     QPushButton *pushButton_2;
     QTableWidget *tableWidget_2;
-    QToolBar *mainToolBar;
-    QStatusBar *statusBar;
-    QToolBar *toolBar;
-    QMenuBar *menuBar;
-    QMenu *menuHome;
 
     void setupUi(QMainWindow *AttPar)
     {
         if (AttPar->objectName().isEmpty())
             AttPar->setObjectName(QString::fromUtf8("AttPar"));
-        AttPar->resize(976, 351);
+        AttPar->resize(976, 281);
         centralWidget = new QWidget(AttPar);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
@@ -163,23 +153,6 @@ public:
         horizontalLayout_2->addLayout(verticalLayout_3);
 
         AttPar->setCentralWidget(centralWidget);
-        mainToolBar = new QToolBar(AttPar);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        AttPar->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(AttPar);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
-        AttPar->setStatusBar(statusBar);
-        toolBar = new QToolBar(AttPar);
-        toolBar->setObjectName(QString::fromUtf8("toolBar"));
-        AttPar->addToolBar(Qt::TopToolBarArea, toolBar);
-        menuBar = new QMenuBar(AttPar);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 976, 26));
-        menuHome = new QMenu(menuBar);
-        menuHome->setObjectName(QString::fromUtf8("menuHome"));
-        AttPar->setMenuBar(menuBar);
-
-        menuBar->addAction(menuHome->menuAction());
 
         retranslateUi(AttPar);
 
@@ -209,8 +182,6 @@ public:
         label_3->setText(QApplication::translate("AttPar", "Command History:", nullptr));
         pushButton_3->setText(QApplication::translate("AttPar", "Perform Conversion", nullptr));
         pushButton_2->setText(QApplication::translate("AttPar", "Send to File", nullptr));
-        toolBar->setWindowTitle(QApplication::translate("AttPar", "toolBar", nullptr));
-        menuHome->setTitle(QApplication::translate("AttPar", "Home", nullptr));
     } // retranslateUi
 
 };
