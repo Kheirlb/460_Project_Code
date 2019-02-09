@@ -20,10 +20,14 @@ Install Python3.6
 - Type in terminal "python -V" and you should see your python version display in the terminal.
 Install PyQt5
 Type in terminal:
+
   python -m pip install pyqt5-tools
+  
 Install Numpy
 Type in terminal:
+
   python -m pip install numpy
+  
 Install GitHub
 - Follow link and install https://desktop.github.com/
 Install AttPar Python/MATLAB Program Code.
