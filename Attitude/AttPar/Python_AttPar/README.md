@@ -2,7 +2,7 @@
 
 AttParGUI is a user interface designed to easily convert attitude coordinate systems using MATLAB functions.
 
-![Screenshot](https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar/images/AttParGUIsmall.PNG?raw=true)
+![Screenshot](https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar/images/irDataStreaming.png?raw=true)
 
 ## Dependencies
 - MATLAB
