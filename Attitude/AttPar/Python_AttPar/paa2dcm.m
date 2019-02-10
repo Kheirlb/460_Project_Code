@@ -1,4 +1,4 @@
-function [dcm] = paa2dcm(e,phi)
+function [dcm] = paa2dcm(eNphi)
 
 
 % phi = 77.3409;
@@ -11,9 +11,10 @@ function [dcm] = paa2dcm(e,phi)
 % e = [e1; e2; e3];
 %phi = acosd(.5*(trace(C)-1));
 
-e1 = e(1,1);
-e2 = e(2,1);
-e3 = e(3,1);
+e1 = eNphi(1,1);
+e2 = eNphi(2,1);
+e3 = eNphi(3,1);
+phi = eNphi(4,1);
 
 dcm = [ cosd(phi)+(1-cosd(phi))*e1^2, (1-cosd(phi))*e1*e2+e3*sind(phi), (1-cosd(phi))*e1*e3-e2*sind(phi);
     (1-cosd(phi))*e1*e2-e3*sind(phi), cosd(phi)+(1-cosd(phi))*e2^2, (1-cosd(phi))*e2*e3+e1*sind(phi);
