@@ -1,14 +1,16 @@
-print("Starting AttParGUI and MATLAB Engine")
+print("Starting AttParGUI.py and MATLAB Engine")
 
 import matlab.engine
 import numpy as np
 import sys
 import time
+import math
 from PyQt5 import QtCore, QtWidgets, QtGui, Qt, uic
 from PyQt5.QtGui import QTextCursor
 
+print("This may take a few moments...")
 eng = matlab.engine.start_matlab()
-print("... Successful Start")
+print("... successful Engine Start.")
 print("The AttParGUI should open momentarily.")
 
 qtCreatorFile = "attpar_ui.ui"  # Enter file here.
@@ -36,10 +38,13 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             b = a.tolist()
             R = matlab.double(b)
             if inputString != "":
+                self.statusL.setStyleSheet("color:#1358bf")
                 self.statusL.setText('Input Status: Readable')
             else:
+                self.statusL.setStyleSheet("color:#d80202")
                 self.statusL.setText('Input Status: NOT Readable')
         except:
+            self.statusL.setStyleSheet("color:#d80202")
             self.statusL.setText('Input Status: NOT Readable')
 
     def readInputF(self):
@@ -49,13 +54,13 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.indexNum != 0:
             inputString = str(self.inputT.toPlainText())
             #print(inputString)
-            #Check if we can create a matrix from input text.
-            a = np.matrix(inputString)
-            b = a.tolist()
-            R = matlab.double(b)
-            print(R)
-            #try to run matlab script
             try:
+                #Check if we can create a matrix from input text.
+                a = np.matrix(inputString)
+                b = a.tolist()
+                R = matlab.double(b)
+                print(R)
+                #try to run matlab script
                 #print("Beginning Try...")
                 print(self.indexNum)
                 self.Y = eng.attpar(R,self.indexNum);
@@ -87,15 +92,19 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.outputT.insertPlainText(str(self.toCombo.currentText()) + ":\n")
         rows = len(Y)
         cols = len(Y[0])
+        precString = str(self.precCombo.currentText())
         #else:
         print(str(Y))
             #self.outputT.insertPlainText(str(Y))
         if formatPrint != 0:
             for i in range(rows):
                 for j in range(cols):
-                    self.outputT.insertPlainText(str(Y[i][j]))
+                    if precString[0] == "D":
+                        self.outputT.insertPlainText(str(Y[i][j]))
+                    else:
+                        self.outputT.insertPlainText(str(round(Y[i][j],int(precString[0]))))
                     if j != cols - 1:
-                        self.outputT.insertPlainText(" ")
+                        self.outputT.insertPlainText("  ")
                 if i != rows - 1:
                     self.outputT.insertPlainText(";\n")
 
