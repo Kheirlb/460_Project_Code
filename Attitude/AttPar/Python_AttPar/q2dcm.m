@@ -1,7 +1,6 @@
-function [ dcm ] = q2dcm( q)
+function [ dcm ] = q2dcm(q)
 %UNTITLED This function converts Quaternions
 %   Detailed explanation goes here
-
 q1 = q(1,1);
 q2 = q(2,1);
 q3 = q(3,1);

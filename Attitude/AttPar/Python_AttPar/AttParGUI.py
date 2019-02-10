@@ -1,4 +1,4 @@
-print("Starting AttParGUI and Matlab Engine")
+print("Starting AttParGUI and MATLAB Engine")
 
 import matlab.engine
 import numpy as np
@@ -15,18 +15,32 @@ qtCreatorFile = "attpar_ui.ui"  # Enter file here.
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 convDict = {'de':1,'dq':2,'dg':3,'dp':4,'dm':5,'ed':6,\
-'eq':7,'qe':8,'qd':9,'qg':10,'gq':11,'qd':12,'pd':13,'md':14}
+'eq':7,'qe':8,'qd':9,'qg':10,'gq':11,'gd':12,'pd':13,'md':14}
 
 class Window(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
-        #self.showMaximized()
+        self.showMaximized()
         self.initUI()
 
     def initUI(self):
         self.convB.clicked.connect(self.readInputF)
+        self.inputT.textChanged.connect(self.checkRead)
+
+    def checkRead(self):
+        try:
+            inputString = str(self.inputT.toPlainText())
+            a = np.matrix(inputString)
+            b = a.tolist()
+            R = matlab.double(b)
+            if inputString != "":
+                self.statusL.setText('Input Status: Readable')
+            else:
+                self.statusL.setText('Input Status: NOT Readable')
+        except:
+            self.statusL.setText('Input Status: NOT Readable')
 
     def readInputF(self):
         self.Y = 0.0
@@ -39,19 +53,25 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
             a = np.matrix(inputString)
             b = a.tolist()
             R = matlab.double(b)
-            #print(R)
+            print(R)
             #try to run matlab script
             try:
+                #print("Beginning Try...")
+                print(self.indexNum)
                 self.Y = eng.attpar(R,self.indexNum);
-                print("Ran Matlab AttPar Script")
+                #self.Y = eng.transposeAndRunAttPar(R,self.indexNum);
+                print("Ran MATLAB AttPar Script")
                 print(self.Y)
             except:
                 self.history.moveCursor(QTextCursor.End)
-                self.history.insertPlainText("> ERROR: Cannot Convert In Matlab\n")
+                self.history.insertPlainText("> ERROR: MATLAB Engine Failure\n")
+                if inputString == "":
+                    self.history.insertPlainText(">> CAUSE: Empty Input\n")
                 self.history.moveCursor(QTextCursor.End)
+
             if self.Y == 0.0:
                 self.history.moveCursor(QTextCursor.End)
-                self.history.insertPlainText("> ERROR: Cannot Convert In Matlab\n")
+                self.history.insertPlainText("> ERROR: Cannot Convert\n")
                 self.history.moveCursor(QTextCursor.End)
             else:
                 self.printMatrix()
@@ -62,28 +82,22 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
     def printMatrix(self):
         Y = self.Y
         self.outputT.clear()
-        formatPrint = 0;
-        if str(self.toCombo.currentText()) == "Quaternion":
-            formatPrint = 1;
-            self.outputT.insertPlainText("Quaternion:\n")
-            rows = len(Y)
-            cols = 1
-            #print(float(Y[0][0]))
-            #print(float(Y[1][0]))
-            #print(float(Y[2][0]))
-            #print(float(Y[3][0]))
-        elif str(self.toCombo.currentText()) == "Gibbs Vectors":
-            formatPrint = 1;
-            self.outputT.insertPlainText("Gibbs Vectors:\n")
-            rows = len(Y)
-            cols = 1
-        else:
-            print(str(Y))
-            self.outputT.insertPlainText(str(Y))
+        #formatPrint = 0;
+        formatPrint = 1;
+        self.outputT.insertPlainText(str(self.toCombo.currentText()) + ":\n")
+        rows = len(Y)
+        cols = len(Y[0])
+        #else:
+        print(str(Y))
+            #self.outputT.insertPlainText(str(Y))
         if formatPrint != 0:
             for i in range(rows):
                 for j in range(cols):
-                    self.outputT.insertPlainText(str(Y[i][j]) + ";\n")
+                    self.outputT.insertPlainText(str(Y[i][j]))
+                    if j != cols - 1:
+                        self.outputT.insertPlainText(" ")
+                if i != rows - 1:
+                    self.outputT.insertPlainText(";\n")
 
     def setConvTypeF(self):
         fromText = str(self.fromCombo.currentText())

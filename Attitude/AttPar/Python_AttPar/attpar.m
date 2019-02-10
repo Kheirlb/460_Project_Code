@@ -13,8 +13,8 @@ switch I
         %Y = dcm2paa(X);
         Y = 0.0;
     case 5
-        %Y = dcm2mrp(X);
-        Y = 0.0;
+        Y = dcm2mrp(X);
+        %Y = 0.0;
     case 6
         %Y = ea2dcm(X);
         Y = 0.0;
@@ -25,8 +25,8 @@ switch I
         %Y = q2ea(X);
         Y = 0.0;
     case 9
-        %Y = q2dcm(X);
-        Y = 0.0;
+        Y = q2dcm(X);
+        %Y = 0.0;
     case 10
         %Y = q2gv(X);
         Y = 0.0;
@@ -37,8 +37,8 @@ switch I
         %Y = gv2dcm(X);
         Y = 0.0;
     case 13
-        %Y = paa2dcm(X);
-        Y = 0.0;
+        Y = paa2dcm(X);
+        %Y = 0.0;
     case 14
         %Y = paa2q(X);
         Y = 0.0;
