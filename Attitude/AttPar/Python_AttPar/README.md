@@ -1,5 +1,7 @@
 # Attitude Parameter Conversion
 
+![Alt text](/images/AttParGUIscreenshot.png?raw=true)
+
 ## Dependencies
 - MATLAB
 - Python3.6
