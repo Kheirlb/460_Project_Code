@@ -23,7 +23,7 @@
        </font>
       </property>
       <property name="text">
-       <string>AttParGUI is a user interface deisgned to easily convert attitude coordinate systems using MATLAB functions.</string>
+       <string>AttParGUI is a user interface designed to easily convert attitude coordinate systems using MATLAB functions.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>

@@ -1,6 +1,8 @@
 # Attitude Parameter Conversion
 
-![Alt text](/images/AttParGUIscreenshot.png?raw=true)
+AttParGUI is a user interface designed to easily convert attitude coordinate systems using MATLAB functions.
+
+![alt text](/images/AttParGUIscreenshot.png?raw=true)
 
 ## Dependencies
 - MATLAB
