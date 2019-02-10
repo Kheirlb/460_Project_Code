@@ -2,16 +2,14 @@
 
 AttParGUI is a user interface designed to easily convert attitude coordinate systems using MATLAB functions.
 
-<p>
-![Screenshot](https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar/images/AttParGUIsmall.PNG?raw=true)
-</p>
-
 ## Dependencies
 - MATLAB
 - Python3.6
 - PyQt5
 - Numpy
 - MATLAB Engine for Python
+
+![Screenshot](https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar/images/AttParGUIsmall.PNG?raw=true)
 
 ## Installation Procedure
 Please follow the below installation procedure. You may skip steps if already installed. You will be required to use the Window Command Prompt or Terminal frequently so you may want to visit this tutorial if you are confused: https://www.bleepingcomputer.com/tutorials/windows-command-prompt-introduction/. Many of these installations require admin privileges so: Make sure you click "Run as Administrator" for the command line on Windows. If you are on a MAC, I think you just have to add "sudo" to every command.
