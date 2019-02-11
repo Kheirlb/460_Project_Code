@@ -11,7 +11,7 @@ AttParGUI is a user interface designed to easily convert between various attitud
 - Numpy
 - MATLAB Engine for Python
 
-![Screenshot](460_Project_Code/blob/master/Attitude/AttPar/Python_AttPar/images/AttParGUIsmallv2.JPG/images/AttParGUIsmallv2.JPG?raw=true)
+![Screenshot](https://github.com/Kheirlb/460_Project_Code/blob/master/Attitude/AttPar/Python_AttPar/images/AttParGUIsmallv2.JPG?raw=true)
 
 ## Installation Procedure
 Please follow the below installation procedure. You will be required to use the Window Command Prompt or Terminal frequently so you may want to visit this tutorial if you are confused: https://www.bleepingcomputer.com/tutorials/windows-command-prompt-introduction/. Many of these installations require admin privileges so: Make sure you click "Run as Administrator" for the command line on Windows. If you are on a MAC, I think you just have to add "sudo" to every command.
