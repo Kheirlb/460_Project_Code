@@ -59,19 +59,21 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
                 a = np.matrix(inputString)
                 b = a.tolist()
                 R = matlab.double(b)
+                print("\nPython Input Matrix X: ")
                 print(R)
                 #try to run matlab script
                 #print("Beginning Try...")
-                print(self.indexNum)
-                self.Y = eng.attpar(R,self.indexNum);
+                print("Y = attpar(X, %d)" % self.indexNum)
+                self.Y = eng.attpar(R, self.indexNum);
                 #self.Y = eng.transposeAndRunAttPar(R,self.indexNum);
-                print("Ran MATLAB AttPar Script")
-                print(self.Y)
+                print("Ran MATLAB attpar.m Script")
             except:
                 self.history.moveCursor(QTextCursor.End)
                 self.history.insertPlainText("> ERROR: MATLAB Engine Failure\n")
                 if inputString == "":
                     self.history.insertPlainText(">> CAUSE: Empty Input\n")
+                if str(self.toCombo.currentText()) == "Euler Angles":
+                    self.history.insertPlainText(">> LIKELY CAUSE: Need Sequence\n")
                 self.history.moveCursor(QTextCursor.End)
 
             if self.Y == 0.0:
@@ -94,6 +96,7 @@ class Window(QtWidgets.QMainWindow, Ui_MainWindow):
         cols = len(Y[0])
         precString = str(self.precCombo.currentText())
         #else:
+        print("MATLAB Output Matrix Y: ")
         print(str(Y))
             #self.outputT.insertPlainText(str(Y))
         if formatPrint != 0:
