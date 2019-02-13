@@ -2,9 +2,9 @@ function [ dcm ] = q2dcm(q)
 %UNTITLED This function converts Quaternions
 %   Detailed explanation goes here
 q1 = q(1,1);
-q2 = q(2,1);
-q3 = q(3,1);
-q4 = q(4,1);
+q2 = q(1,2);
+q3 = q(1,3);
+q4 = q(1,4);
 qv = [q1; q2; q3];
 
 c11 = (2*q4^2 + 2*q1^2 - 1); %ROW 1

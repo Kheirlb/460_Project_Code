@@ -21,7 +21,7 @@ Unfortunately, I failed to make an executable file because of strange mlarray er
 ### Install MATLAB
 - You can figure that out (Probably already complete). You may need to install the Aerospace Toolbox if you plan to convert from Direction Cosine Matrix to Euler Angles.
 
-### Install Python 3.6 (MATLAB Engine for Python supports Python version 2.7, 3.5 and 3.6)
+### Install Python 3.6 (MATLAB R2018A Engine for Python supports Python version 2.7, 3.5 and 3.6)
 - Make sure you select "Add Python 3.6 to PATH" on first page of installer.
 - Go to: https://www.python.org/downloads/release/python-368/
 - For Windows: Use -64 bit installer for -64 bit MATLAB

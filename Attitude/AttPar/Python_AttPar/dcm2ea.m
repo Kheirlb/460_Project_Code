@@ -31,7 +31,7 @@ switch s
     case 313
         [pitch, roll, yaw] = dcm2angle(dcm,'ZXZ');
 end 
-eularAngles = rad2deg([pitch, roll, yaw]');
+eularAngles = rad2deg([pitch, roll, yaw]);
 
 end
 
