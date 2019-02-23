@@ -4,6 +4,7 @@ dcm = dcmNs(1:3,:);
 sVector = dcmNs(4,:);
 sString = strcat(int2str(sVector(1)), int2str(sVector(2)), int2str(sVector(3)));
 s = str2double(sString);
+lim = 'ZeroR3';
 
 switch s
     case 123
@@ -11,7 +12,7 @@ switch s
     case 121
         [pitch,roll,yaw] = dcm2angle(dcm,'XYX');
     case 132
-        [pitch,roll,yaw] = dcm2angle(dcm,'XZY');
+        [pitch,roll,yaw] = dcm2angle(dcm,'XZY', lim);
     case 131
         [pitch,roll,yaw] = dcm2angle(dcm,'XZX');
     case 213
@@ -31,7 +32,7 @@ switch s
     case 313
         [pitch, roll, yaw] = dcm2angle(dcm,'ZXZ');
 end 
-eularAngles = rad2deg([pitch, roll, yaw]);
+eularAngles = rad2deg([pitch, roll, yaw]');
 
 end
 
