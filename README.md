@@ -2,7 +2,7 @@
 AE 460 Senior Design - CubeSat Project
 
 ## AttParGUI
-Please view the readme file in this directory:
+Please view the readme file in this [directory:](https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar)
 https://github.com/Kheirlb/460_Project_Code/tree/master/Attitude/AttPar/Python_AttPar
 
 ## Useful Links
