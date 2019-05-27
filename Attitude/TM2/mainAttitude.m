@@ -3,8 +3,8 @@ clear;clc;close all;
 global I;
 global k1;
 global k2;
-w_not = rand(3,1);
-q_not = rand(4,1);
+w_not = rand(3,1); %angular velcity
+q_not = rand(4,1); %quarternion
 q_not = q_not/norm(q_not);
 t = [0,15];
 k1 = 1;
